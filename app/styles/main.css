@@ -1,0 +1,116 @@
+body{
+	background: #ddd;
+	width: 100%;
+}
+
+path { 
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+text.shadow {
+    stroke: white;
+    stroke-width: 2.5px;
+    opacity: 0.9;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+
+.stock-graph-container{
+	margin: 20px;
+	padding: 20px;
+	background: #FFF;
+}
+
+.nav-pills li a :active{
+	background: #ff6a6a;
+	border: 0;
+	color: #FFF;
+}
+
+.container{
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+.search-result-outer-cntr{
+	margin: 0;
+}
+
+.search-result-container{
+	margin-top: 16px;
+
+}
+
+.search-query-container{
+	box-shadow: 0 4px 4px rgba(0,0,0,.2);
+	padding-top: 8px;
+	padding-bottom: 8px;
+	background-color: #fff;
+	border: 1px solid #e8e8e8;
+	margin-bottom: 8px;
+}
+
+.search-result-headings{
+	color: #000;
+}
+
+.error{
+	  color: #a94442
+}
+
+.inputerror{
+	border: 1px solid #a94442;
+}
+
+.search-results-category{
+	height: 40px;
+	line-height: 40px;
+	background-color: #016091;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #ffffff;
+	padding-left: 10px;
+	text-align: left;
+}
+
+.form-control{
+	background: #EEE;
+	box-shadow: none;
+	border: 1px solid #EEE;
+	height: 32px;
+	border-radius: 2px;
+	width: 155px;
+}
+
+.result-row{
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 10px;
+	border: 1px solid #d6d6d6;
+}
+
+.app-heading{
+	font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.search-result-sections{
+	border: 1px solid #ccc;
+	border-left: none;
+	border-top: none;
+	padding : 0;
+	background: #fff;
+	margin-left: 8px;
+}
+

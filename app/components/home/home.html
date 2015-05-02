@@ -1,0 +1,189 @@
+
+<div> 
+	<div class="col-md-12 search-query-container">        
+          <form class="form-inline">
+            <div class="form-group" ng-class="{error : titleEmpty}">
+              <label class="control-label" for="t">Title: </label>
+              <input type="text" ng-model="title" name="t" class="input-small" ng-class="{inputerror : titleEmpty}">
+              <span class="text-danger" ng-if="titleEmpty">*Enter Title</span>
+            </div>
+            <div class="form-group">
+              <label>Year: </label>
+              <input type="text" ng-model="year" name="y" class="input-small">           
+            </div>
+            <div class="form-group">
+              <label>Plot: </label>
+              <select class="form-control" ng-model="plot" style="min-width : 100px">
+                <option value="short">SHORT</option>
+                <option value="full">LONG</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Tomato Ratings: </label>
+              <select class="form-control" ng-model="tomatoRatings" style="min-width : 100px">
+                <option value="true">YES</option>
+                <option value="false">NO</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Type: </label>
+              <select class="form-control" ng-model="type" style="min-width : 100px">
+                <option value="movie">MOVIE</option>
+                <option value="series">TV SERIES</option>
+                <option value="episode">EPISODE</option>
+              </select>
+            </div>
+            <div class="form-group">
+            	<button id="search-by-title-button" type="button" class="btn-sm btn-primary" ng-click="search()">Search</button>
+            	<button id="search-by-title-reset" type="reset" class="btn-sm" ng-click="reset()">Reset</button>
+            </div>
+          </form>        
+    </div>
+    <div class="row search-result-outer-cntr">
+    	<div class="search-result-container">
+    		<div class="col-md-3 search-result-sections">
+    			<div class="search-results-category">
+    				Movie/TV Series/Episode
+    			</div>
+    			<div class="result-row">
+		    		<span class="search-result-headings">Title : </span>{{movieData.Title}}
+		    	</div>
+		    	<div class="result-row">
+		    		<span class="search-result-headings">Type : </span>{{movieData.Type}}
+		    	</div>
+		    	<div class="result-row">
+		    		<span class="search-result-headings">Genre : </span>{{movieData.Genre}}
+		    	</div>
+		    	<div class="result-row">
+		    		<span class="search-result-headings">Website : </span>
+		    		<a href="{{movieData.Website}}" target="_blank">
+		    			{{movieData.Website}}
+		    		</a>
+		    	</div>
+		    	<div class="result-row">
+		    		<span class="search-result-headings">Year : </span>{{movieData.Year}}
+		    	</div>
+		    	<div class="result-row">
+		    		<span class="search-result-headings">Released : </span>{{movieData.Released}}
+		    	</div>
+		    	<div class="result-row">
+		    		<span class="search-result-headings">Plot : </span>{{movieData.Plot}}
+		    	</div>
+    		</div>
+    		<div class="col-md-3 search-result-sections">
+    			<div class="search-results-category">
+    				Cast &Crew
+    			</div>
+    			<div class="result-row">
+		    		<span class="search-result-headings">Director : </span>{{movieData.Director}}
+		    	</div>
+		    	<div class="result-row">
+		    		<span class="search-result-headings">Actors : </span>{{movieData.Actors}}
+		    	</div>
+		    	<div class="result-row">
+		    		<span class="search-result-headings">Writer : </span>{{movieData.Writer}}
+		    	</div>
+		    	<div class="result-row">
+		    		<span class="search-result-headings">Production : </span>{{movieData.Production}}
+		    	</div>
+		    	<div class="result-row">
+		    		<span class="search-result-headings">Awards : </span>{{movieData.Awards}}
+		    	</div>
+		    	<div class="result-row">
+		    		<span class="search-result-headings">Country : </span>{{movieData.Country}}
+		    	</div> 
+    		</div>
+    		<div class="col-md-3 search-result-sections">
+    			<div class="search-results-category">
+    				Ratings
+    			</div>
+    			<div class="result-row">
+		    		<span class="search-result-headings">Rated : </span>{{movieData.Rated}}
+		    	</div>
+		    	<div class="result-row">
+		    		<span class="search-result-headings">BoxOffice : </span>{{movieData.BoxOffice}}
+		    	</div>
+		    	<div class="result-row">
+		    		<span class="search-result-headings">IMDB ID : </span>{{movieData.imdbID}}
+		    	</div>
+		    	<div class="result-row">
+		    		<span class="search-result-headings">IMDB Rating : </span>{{movieData.imdbRating}}
+		    	</div>
+		    	<div class="result-row">
+		    		<span class="search-result-headings">IMDB Votes : </span>{{movieData.imdbVotes}}
+		    	</div>
+		    	<div class="result-row">
+		       		<span class="search-result-headings">DVD : </span>{{movieData.DVD}}
+		       	</div>
+    		</div>
+    		<div class="col-md-2 search-result-sections">
+    			<div class="search-results-category">
+    				Tomato Ratings
+    			</div>
+    			<div class="result-row">
+		    		<span class="search-result-headings">Tomato Consensus : </span>{{movieData.tomatoConsensus}}
+		    	</div>
+		    	<div class="result-row">
+		    		<span class="search-result-headings">Tomato Fresh : </span>{{movieData.tomatoFresh}}
+		    	</div>
+		    	<div class="result-row">
+		    		<span class="search-result-headings">Tomato Image : </span>{{movieData.tomatoImage}}
+		    	</div>
+		    	<div class="result-row">
+		    		<span class="search-result-headings">Tomato Meter : </span>{{movieData.tomatoMeter}}
+		    	</div>
+		    	<div class="result-row">
+		    		<span class="search-result-headings">Tomato Rating : </span>{{movieData.tomatoRating}}
+		    	</div>
+		    	<div class="result-row">
+		    		<span class="search-result-headings">Tomato Reviews : </span>{{movieData.tomatoReviews}}
+		    	</div>
+		    	<div class="result-row">
+		    		<span class="search-result-headings">Tomato Rotten : </span>{{movieData.tomatoRotten}}
+		    	</div>
+		    	<div class="result-row">
+		    		<span class="search-result-headings">Tomato UserMeter : </span>{{movieData.tomatoUserMeter}}
+		    	</div>
+		    	<div class="result-row">
+		    		<span class="search-result-headings">Tomato UserRating : </span>{{movieData.tomatoUserRating}}
+		    	</div>
+		    	<div class="result-row">
+		    		<span class="search-result-headings">Tomato UserReviews : </span>{{movieData.tomatoUserReviews}}
+		    	</div>  
+    		</div>
+    	</div>
+    </div>
+	<!-- <div class="row">
+		<div class="col-md-2 col-sm-2 col-xs-2" style="text-align : center">
+			<span>ID</span>
+			<div ng-repeat="country in pickedCountries" tabindex="{{$index}}">
+				<div>{{country}} </div>
+			</div>
+		</div>
+		<div class="col-md-2 col-sm-2 col-xs-2" style="text-align : center">
+			<span>nameHash</span>
+			<div ng-repeat="country in pickedCountries" tabindex="{{$index}}">
+				<div>{{country}} </div>
+			</div>
+		</div>
+		<div class="col-md-2 col-sm-2 col-xs-2" style="text-align : center">
+			<span>GDP</span>
+			<div ng-repeat="country in pickedCountries" tabindex="{{$index}}">
+				<div>{{country}} </div>
+			</div>
+		</div>
+		<div class="col-md-2 col-sm-2 col-xs-2" style="text-align : center">
+			<span>Life Expectancy</span>
+			<div ng-repeat="country in pickedCountries" tabindex="{{$index}}">
+				<div>{{country}} </div>
+			</div>
+		</div>
+		<div class="col-md-2 col-sm-2 col-xs-2" style="text-align : center">
+			<span>Population</span>
+			<div ng-repeat="country in pickedCountries" tabindex="{{$index}}">
+				<div>{{country}} </div>
+			</div>
+		</div>
+	</div> -->
+</div>
+

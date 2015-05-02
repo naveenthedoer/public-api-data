@@ -1,0 +1,43 @@
+<div class="row">
+	<div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+		<table class="table table-stripped table-hover">
+			<thead>
+				<tr>
+					<th>Stocks</th>
+					<th>price</th>
+					<th>change</th>
+					<th>change %</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="stockData in stocksInfo">
+					<td>{{stockData.t}}</td>
+					<td>{{stockData.l}}</td>
+					<td>{{stockData.c}}</td>
+					<td>{{stockData.cp}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="stock-graph-container">
+	<div stock-chart chart-data="salesData" ng-if="loadingIsDone"></div>
+</div>
+<!-- <div class="row">
+	<div class="col-md-12"> 
+
+		<nvd3-line-chart
+		data="lineGraphData"
+		showXAxis="true"
+		showYAxis="true"
+		tooltips="true"
+		interactive="true"
+		showLegend="true"
+		xAxisLabel="Date"
+		xAxisTickFormat="xAxisTickFormatFunction()">
+		<svg></svg>
+		</nvd3-line-chart>
+
+	</div>
+</div>
+ -->
